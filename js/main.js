@@ -1051,7 +1051,7 @@ function computeHourlyProfit(hour, season, locations, weather){
         });
     })
 
-    // total = total / (locations.length);
+    total = total / (locations.length);
     return total; 
 }
 
@@ -1196,9 +1196,8 @@ function fishAveragePricePerTime(seasons=ctx.seasons, locations=ctx.locations, w
                 .attr("d", line)
                 .attr("stroke-width", 2)
                 .attr("stroke", (d, i) => colors(seasons[i]))
-                .attr("fill", "none")
-                .append("title")
-                .text((d, i) => seasons[i])
+                .attr("fill", (d, i) => colors(seasons[i]))
+                .attr("fill-opacity", 0.2)
         );
 
     function formatTime(hour){
